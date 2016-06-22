@@ -56,11 +56,7 @@ public class WriteToExcel {
 					sheet.addCell(label);
 					
 					label = new Label(3,i+1,shipInfos.get(i).getDate());
-					sheet.addCell(label);
-					
-					
-					
-				
+					sheet.addCell(label);				
 			}
 			book.write();
 			book.close();
