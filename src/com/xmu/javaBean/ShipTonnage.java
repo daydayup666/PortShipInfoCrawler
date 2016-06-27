@@ -15,4 +15,14 @@ public class ShipTonnage implements Serializable{
 	public int getNetTonnage() {
 		return netTonnage;
 	}
+	public void setTotalTonnage(int totalTonnage) {
+		this.totalTonnage = totalTonnage;
+	}
+	public void setLoadingTonnage(int loadingTonnage) {
+		this.loadingTonnage = loadingTonnage;
+	}
+	public void setNetTonnage(int netTonnage) {
+		this.netTonnage = netTonnage;
+	}
+	
 }

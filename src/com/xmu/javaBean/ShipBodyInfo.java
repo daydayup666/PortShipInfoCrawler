@@ -1,6 +1,5 @@
 package com.xmu.javaBean;
 
-<<<<<<< HEAD
 import java.io.Serializable;
 
 public class ShipBodyInfo implements Serializable{
@@ -37,8 +36,29 @@ public class ShipBodyInfo implements Serializable{
 	public boolean isEquippedInertGas() {
 		return isEquippedInertGas;
 	}
-=======
-public class ShipBodyInfo {
-
->>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
+	public void setCabinNum(int cabinNum) {
+		this.cabinNum = cabinNum;
+	}
+	public void setContainers(int containers) {
+		this.containers = containers;
+	}
+	public void setDeckNum(int deckNum) {
+		this.deckNum = deckNum;
+	}
+	public void setMolededDepth(int molededDepth) {
+		this.molededDepth = molededDepth;
+	}
+	public void setMolededWidth(int molededWidth) {
+		this.molededWidth = molededWidth;
+	}
+	public void setDraft(int draft) {
+		this.draft = draft;
+	}
+	public void setConfiguredWashing(boolean isConfiguredWashing) {
+		this.isConfiguredWashing = isConfiguredWashing;
+	}
+	public void setEquippedInertGas(boolean isEquippedInertGas) {
+		this.isEquippedInertGas = isEquippedInertGas;
+	}
+	
 }

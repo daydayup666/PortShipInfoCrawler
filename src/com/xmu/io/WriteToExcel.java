@@ -17,7 +17,9 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 import com.xmu.javaBean.PortShipInfo;
-import com.xmu.logic.ShipInfoParser;
+import com.xmu.javaBean.ShipBaseInfo;
+import com.xmu.logic.ShipDynamicInfoParser;
+import com.xmu.logic.ShipSpecificInfoParser;
 /**
  * Created by Administrator on 2016/6/21.
  */
@@ -26,9 +28,11 @@ public class WriteToExcel {
 	ArrayList<PortShipInfo> shipInfos;
     public void writeExcel() {
     	long start = System.currentTimeMillis();
-        ShipInfoParser parser = new ShipInfoParser(
+        ShipDynamicInfoParser parser = new ShipDynamicInfoParser(
                 "http://www.chinaports.com/shipline/1/20/26/shipstatView");
         parser.parseUrl();
+        ShipSpecificInfoParser shipSpecificInfoParser = new ShipSpecificInfoParser();
+        shipSpecificInfoParser.shipInfoParser();
         shipInfos = parser.getPortShipInfoList();
         try {
         	String filePath ="PortShipInfo.xls";
@@ -56,15 +60,10 @@ public class WriteToExcel {
 					sheet.addCell(label);
 					
 					label = new Label(3,i+1,shipInfos.get(i).getDate());
-<<<<<<< HEAD
-					sheet.addCell(label);
 					
 					
 					
-				
-=======
 					sheet.addCell(label);				
->>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
 			}
 			book.write();
 			book.close();

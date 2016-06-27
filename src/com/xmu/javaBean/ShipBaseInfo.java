@@ -1,8 +1,6 @@
 package com.xmu.javaBean;
 
-<<<<<<< HEAD
 import java.io.Serializable;
-import java.util.Date;
 
 public class ShipBaseInfo implements Serializable{
 	private String shipName;             //船名
@@ -52,9 +50,42 @@ public class ShipBaseInfo implements Serializable{
 	}
 	public String getCreateShipTime() {
 		return createShipTime;
-	}	
-=======
-public class ShipBaseInfo {
-
->>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
+	}
+	public void setShipName(String shipName) {
+		this.shipName = shipName;
+	}
+	public void setOriginShipName(String originShipName) {
+		this.originShipName = originShipName;
+	}
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	public void setOriginNationality(String originNationality) {
+		this.originNationality = originNationality;
+	}
+	public void setShipChineseName(String shipChineseName) {
+		this.shipChineseName = shipChineseName;
+	}
+	public void setShipSpeed(int shipSpeed) {
+		this.shipSpeed = shipSpeed;
+	}
+	public void setMMSI(int mMSI) {
+		MMSI = mMSI;
+	}
+	public void setIMO(int iMO) {
+		IMO = iMO;
+	}
+	public void setCallLetter(int callLetter) {
+		this.callLetter = callLetter;
+	}
+	public void setCreateShipFactory(String createShipFactory) {
+		this.createShipFactory = createShipFactory;
+	}
+	public void setCreateShipPlace(String createShipPlace) {
+		this.createShipPlace = createShipPlace;
+	}
+	public void setCreateShipTime(String createShipTime) {
+		this.createShipTime = createShipTime;
+	}
+	
 }
