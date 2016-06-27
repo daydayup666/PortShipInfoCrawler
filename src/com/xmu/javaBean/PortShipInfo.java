@@ -1,11 +1,12 @@
 package com.xmu.javaBean;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 
 /**
  * Created by Administrator on 2016/6/21.
  */
-public class PortShipInfo {
+public class PortShipInfo implements Serializable{
     private String shipName;
     private String dynamicInfo;
     private String portName;
