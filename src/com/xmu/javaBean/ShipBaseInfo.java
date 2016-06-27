@@ -1,5 +1,6 @@
 package com.xmu.javaBean;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.Date;
 
@@ -52,4 +53,8 @@ public class ShipBaseInfo implements Serializable{
 	public String getCreateShipTime() {
 		return createShipTime;
 	}	
+=======
+public class ShipBaseInfo {
+
+>>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
 }

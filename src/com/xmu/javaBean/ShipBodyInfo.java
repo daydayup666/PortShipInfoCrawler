@@ -1,5 +1,6 @@
 package com.xmu.javaBean;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 public class ShipBodyInfo implements Serializable{
@@ -36,4 +37,8 @@ public class ShipBodyInfo implements Serializable{
 	public boolean isEquippedInertGas() {
 		return isEquippedInertGas;
 	}
+=======
+public class ShipBodyInfo {
+
+>>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
 }

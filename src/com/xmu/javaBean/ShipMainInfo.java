@@ -1,5 +1,6 @@
 package com.xmu.javaBean;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 public class ShipMainInfo implements Serializable{
@@ -88,5 +89,9 @@ public class ShipMainInfo implements Serializable{
 		IMO = iMO;
 	}
 	
+=======
+public class ShipMainInfo {
+	String shipName;
+>>>>>>> f2717e7c57a717cdebb653facf3a28387775bf8c
 	
 }
