@@ -9,9 +9,9 @@ public class ShipMainInfo implements Serializable{
 	private String nationality;      //国籍
 	private String shipOwner;        //船东
 	private String shipType;         //船舶类型
-	private int shipLength;          //船长
-	private int shipWidth;           //船宽
-	private int draft;            //吃水米数
+	private double shipLength;          //船长
+	private double shipWidth;           //船宽
+	private double draft;            //吃水米数
 	private String lastTime;      //最后时间
 	private int MMSI;              //水上移动通信业务标识码
 	private int IMO;             //船舶代码
@@ -51,22 +51,22 @@ public class ShipMainInfo implements Serializable{
 	public void setShipType(String shipType) {
 		this.shipType = shipType;
 	}
-	public int getShipLength() {
+	public double getShipLength() {
 		return shipLength;
 	}
-	public void setShipLength(int shipLength) {
+	public void setShipLength(double shipLength) {
 		this.shipLength = shipLength;
 	}
-	public int getShipWidth() {
+	public double getShipWidth() {
 		return shipWidth;
 	}
-	public void setShipWidth(int shipWidth) {
+	public void setShipWidth(double shipWidth) {
 		this.shipWidth = shipWidth;
 	}
-	public int getDraft() {
+	public double getDraft() {
 		return draft;
 	}
-	public void setDraft(int draft) {
+	public void setDraft(double draft) {
 		this.draft = draft;
 	}
 	public String getLastTime() {
@@ -79,13 +79,13 @@ public class ShipMainInfo implements Serializable{
 		return MMSI;
 	}
 	public void setMMSI(int mMSI) {
-		MMSI = mMSI;
+		this.MMSI = mMSI;
 	}
 	public int getIMO() {
 		return IMO;
 	}
 	public void setIMO(int iMO) {
-		IMO = iMO;
+		this.IMO = iMO;
 	}
 	
 }
