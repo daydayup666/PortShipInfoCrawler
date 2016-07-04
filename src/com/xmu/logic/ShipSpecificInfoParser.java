@@ -11,6 +11,7 @@ import org.htmlparser.filters.TagNameFilter;
 import org.htmlparser.nodes.TagNode;
 import org.htmlparser.tags.Bullet;
 import org.htmlparser.tags.Div;
+
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
@@ -68,6 +69,7 @@ public class ShipSpecificInfoParser {
 									System.out.println("中文船名：" + spanList.elementAt(1).toPlainTextString());
 								} else if (spanList.elementAt(0).toPlainTextString().equals("呼号：")) {
 									mainInfo.setCallLetter(spanList.elementAt(1).toPlainTextString());
+									baseInfo.setCallLetter(spanList.elementAt(1).toPlainTextString());
 									System.out.println("呼号：" + spanList.elementAt(1).toPlainTextString());
 								} else if (spanList.elementAt(0).toPlainTextString().equals("国籍：")) {
 									mainInfo.setNationality(spanList.elementAt(1).toPlainTextString());
@@ -111,6 +113,13 @@ public class ShipSpecificInfoParser {
 								}else if (spanList.elementAt(0).toPlainTextString().equals("原国籍：")) {
 									baseInfo.setOriginNationality(spanList.elementAt(1).toPlainTextString());
 									System.out.println("原国籍:" + spanList.elementAt(1).toPlainTextString());
+								}else if (spanList.elementAt(0).toPlainTextString().equals("船速：")) {
+									Pattern patt = Pattern.compile("\\d+\\.?\\d*");
+									Matcher mat = patt.matcher(spanList.elementAt(1).toPlainTextString());
+									while(mat.find()){
+										baseInfo.setOriginNationality(mat.group());
+										System.out.println("船速:" + mat.group());
+									}
 								}else if (spanList.elementAt(0).toPlainTextString().equals("造船厂：")) {
 									baseInfo.setCreateShipFactory(spanList.elementAt(1).toPlainTextString());
 									System.out.println("造船厂:" + spanList.elementAt(1).toPlainTextString());
@@ -124,7 +133,22 @@ public class ShipSpecificInfoParser {
 							}
 						}
 					}
+				
+					
+					if(divNode.getAttribute("class")!=null&&divNode.getAttribute("class").equals("con-nav")) {	
+						NodeFilter iFrameFilter = new TagNameFilter("iframe");
+						NodeList iFrameList = divNode.getChildren().extractAllNodesThatMatch(iFrameFilter,true);
+						//System.out.println("frameList.size()="+frameList.size());
+						TagNode iFrameNode = (TagNode) iFrameList.elementAt(0);
+						
+						System.out.println(iFrameNode.getAttribute("src"));
+						
+						ExtractIframeInfo iFrameInfo = new ExtractIframeInfo();
+						iFrameInfo.extractIframeInfo("http://www.chinaports.com/"+iFrameNode.getAttribute("src"));
+					}
 				}
+							
+				System.out.println("\n");			
 			} catch (ParserException e) {
 				e.printStackTrace();
 			}

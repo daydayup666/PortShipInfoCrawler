@@ -17,7 +17,6 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 import com.xmu.javaBean.PortShipInfo;
-import com.xmu.javaBean.ShipBaseInfo;
 import com.xmu.logic.ShipDynamicInfoParser;
 import com.xmu.logic.ShipSpecificInfoParser;
 /**
