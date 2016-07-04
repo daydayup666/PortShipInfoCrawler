@@ -14,11 +14,16 @@ public class ShipBodyInfo implements Serializable{
 	/**
 	 * 冷藏集装箱(平方米)  
 	 */
-	private int containers;        
+	private double containers;        
 	/**
 	 *  甲板数
 	 */
-	private int deckNum;            
+	private int deckNum;   
+	/**
+	 * 总长
+	 */
+	private double totalLength;
+
 	/**
 	 * 型深(m)
 	 */
@@ -42,11 +47,17 @@ public class ShipBodyInfo implements Serializable{
 	public int getCabinNum() {
 		return cabinNum;
 	}
-	public int getContainers() {
+	public double getContainers() {
 		return containers;
 	}
 	public int getDeckNum() {
 		return deckNum;
+	}
+	public double getTotalLength() {
+		return totalLength;
+	}
+	public void setTotalLength(double totalLength) {
+		this.totalLength = totalLength;
 	}
 	public double getMolededDepth() {
 		return molededDepth;
@@ -66,7 +77,7 @@ public class ShipBodyInfo implements Serializable{
 	public void setCabinNum(int cabinNum) {
 		this.cabinNum = cabinNum;
 	}
-	public void setContainers(int containers) {
+	public void setContainers(double containers) {
 		this.containers = containers;
 	}
 	public void setDeckNum(int deckNum) {

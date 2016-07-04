@@ -7,25 +7,26 @@ public class ShipTonnage implements Serializable{
 	 * 序列化对象版本控制
 	 */
 	private static final long serialVersionUID = 1L;
-	private int totalTonnage;     //总吨位
-	private int loadingTonnage;   //载重吨位
-	private int netTonnage;          //净吨位
-	public int getTotalTonnage() {
+	private double totalTonnage;     //总吨位
+	private double loadingTonnage;   //载重吨位
+	private double netTonnage;          //净吨位
+	
+	public double getTotalTonnage() {
 		return totalTonnage;
 	}
-	public int getLoadingTonnage() {
+	public double getLoadingTonnage() {
 		return loadingTonnage;
 	}
-	public int getNetTonnage() {
+	public double getNetTonnage() {
 		return netTonnage;
 	}
-	public void setTotalTonnage(int totalTonnage) {
+	public void setTotalTonnage(double totalTonnage) {
 		this.totalTonnage = totalTonnage;
 	}
-	public void setLoadingTonnage(int loadingTonnage) {
+	public void setLoadingTonnage(double loadingTonnage) {
 		this.loadingTonnage = loadingTonnage;
 	}
-	public void setNetTonnage(int netTonnage) {
+	public void setNetTonnage(double netTonnage) {
 		this.netTonnage = netTonnage;
 	}
 	
