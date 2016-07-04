@@ -3,6 +3,10 @@ package com.xmu.javaBean;
 import java.io.Serializable;
 
 public class ShipTonnage implements Serializable{
+	/**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
 	private int totalTonnage;     //总吨位
 	private int loadingTonnage;   //载重吨位
 	private int netTonnage;          //净吨位

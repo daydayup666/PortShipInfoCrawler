@@ -3,15 +3,42 @@ package com.xmu.javaBean;
 import java.io.Serializable;
 
 public class ShipBodyInfo implements Serializable{
-	private int cabinNum;         //船舱数  
-	private int containers;       //冷藏集装箱
-	private int deckNum;          //甲板数
-	private int molededDepth;     //型深
-	private int molededWidth;     //型宽
-	private int draft;            //吃水米数
-	
-	private boolean isConfiguredWashing;  //是否配置原油洗舱
-	private boolean isEquippedInertGas;    //是否装有惰性气体
+	/**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 船舱数  
+	 */
+	private int cabinNum;   
+	/**
+	 * 冷藏集装箱(平方米)  
+	 */
+	private int containers;        
+	/**
+	 *  甲板数
+	 */
+	private int deckNum;            
+	/**
+	 * 型深(m)
+	 */
+	private double molededDepth;     
+	/**
+	 * 型宽(m)
+	 */
+	private double molededWidth;     
+	/**
+	 * 吃水米数(m)
+	 */
+	private double draft;            
+	/**
+	 * 是否配置原油洗舱
+	 */
+	private boolean isConfiguredWashing;  
+	/**
+	 * 是否装有惰性气体
+	 */
+	private boolean isEquippedInertGas;  
 	public int getCabinNum() {
 		return cabinNum;
 	}
@@ -21,13 +48,13 @@ public class ShipBodyInfo implements Serializable{
 	public int getDeckNum() {
 		return deckNum;
 	}
-	public int getMolededDepth() {
+	public double getMolededDepth() {
 		return molededDepth;
 	}
-	public int getMolededWidth() {
+	public double getMolededWidth() {
 		return molededWidth;
 	}
-	public int getDraft() {
+	public double getDraft() {
 		return draft;
 	}
 	public boolean isConfiguredWashing() {
@@ -45,13 +72,13 @@ public class ShipBodyInfo implements Serializable{
 	public void setDeckNum(int deckNum) {
 		this.deckNum = deckNum;
 	}
-	public void setMolededDepth(int molededDepth) {
+	public void setMolededDepth(double molededDepth) {
 		this.molededDepth = molededDepth;
 	}
-	public void setMolededWidth(int molededWidth) {
+	public void setMolededWidth(double molededWidth) {
 		this.molededWidth = molededWidth;
 	}
-	public void setDraft(int draft) {
+	public void setDraft(double draft) {
 		this.draft = draft;
 	}
 	public void setConfiguredWashing(boolean isConfiguredWashing) {

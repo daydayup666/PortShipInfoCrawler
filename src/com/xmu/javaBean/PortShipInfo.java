@@ -8,8 +8,11 @@ import java.io.Serializable;
  */
 
 public class PortShipInfo implements Serializable{
-
-    private String shipName;
+    /**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
+	private String shipName;
     private String dynamicInfo;
     private String portName;
     private String  date;

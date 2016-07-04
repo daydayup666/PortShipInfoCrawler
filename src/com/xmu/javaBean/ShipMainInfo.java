@@ -3,6 +3,10 @@ package com.xmu.javaBean;
 import java.io.Serializable;
 
 public class ShipMainInfo implements Serializable{
+	/**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
 	private String shipName;         //船名
 	private String shipChineseName;  //船舶中文名字
 	private String callLetter;       //呼号

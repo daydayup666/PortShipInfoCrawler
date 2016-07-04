@@ -3,18 +3,59 @@ package com.xmu.javaBean;
 import java.io.Serializable;
 
 public class ShipBaseInfo implements Serializable{
-	private String shipName;             //船名
-	private String originShipName;      //原船名
-	private String nationality;          //国籍
-	private String originNationality;   //原国籍
-	private String shipChineseName;   //船舶中文名字
-	private int shipSpeed;           //船速
-	private int MMSI;                //水上移动通信业务标识码
-	private int IMO;                  //船舶代码
-	private int callLetter;            //呼号
-	private String createShipFactory;  //造船厂
-	private String createShipPlace;   //造船地点
-    private String createShipTime;     //造船时间
+	/**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 船名
+	 */
+	private String shipName;  
+	/**
+	 * 原船名
+	 */
+	private String originShipName;      
+	/**
+	 * 国籍
+	 */
+	private String nationality;          
+	/**
+	 * 原国籍
+	 */
+	private String originNationality;   
+	/**
+	 * 船舶中文名字
+	 */
+	private String shipChineseName;   
+	/**
+	 * 船速
+	 */
+	private int shipSpeed;           
+	/**
+	 * 水上移动通信业务标识码
+	 */
+	private int MMSI;                
+	/**
+	 * 船舶代码
+	 */
+	private int IMO;                  
+	/**
+	 * 呼号
+	 */
+	private String callLetter;           
+	/**
+	 * 造船厂
+	 */
+	private String createShipFactory;  
+	/**
+	 * 造船地点
+	 */
+	private String createShipPlace;   
+	/**
+	 * 造船时间
+	 */
+	private String createShipTime;     
 	public String getShipName() {
 		return shipName;
 	}
@@ -39,7 +80,7 @@ public class ShipBaseInfo implements Serializable{
 	public int getIMO() {
 		return IMO;
 	}
-	public int getCallLetter() {
+	public String getCallLetter() {
 		return callLetter;
 	}
 	public String getCreateShipFactory() {
@@ -75,7 +116,7 @@ public class ShipBaseInfo implements Serializable{
 	public void setIMO(int iMO) {
 		IMO = iMO;
 	}
-	public void setCallLetter(int callLetter) {
+	public void setCallLetter(String callLetter) {
 		this.callLetter = callLetter;
 	}
 	public void setCreateShipFactory(String createShipFactory) {
