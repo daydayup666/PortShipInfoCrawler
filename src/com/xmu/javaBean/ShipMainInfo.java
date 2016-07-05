@@ -3,17 +3,56 @@ package com.xmu.javaBean;
 import java.io.Serializable;
 
 public class ShipMainInfo implements Serializable{
-	private String shipName;         //船名
-	private String shipChineseName;  //船舶中文名字
-	private String callLetter;       //呼号
-	private String nationality;      //国籍
-	private String shipOwner;        //船东
-	private String shipType;         //船舶类型
-	private double shipLength;          //船长
-	private double shipWidth;           //船宽
-	private double draft;            //吃水米数
-	private String lastTime;      //最后时间
-	private int MMSI;              //水上移动通信业务标识码
+	/**
+	 * 序列化对象版本控制
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 船名
+	 */
+	private String shipName;      
+	/**
+	 * 船舶中文名字
+	 */
+	private String shipChineseName;  
+	/**
+	 * 呼号
+	 */
+	private String callLetter;       
+	/**
+	 * 国籍
+	 */
+	private String nationality;      
+	/**
+	 * 船东
+	 */
+	private String shipOwner;        
+	/**
+	 * 船舶类型
+	 */
+	private String shipType;        
+	/**
+	 * 船长
+	 */
+	private double shipLength;          
+	/**
+	 * 船宽
+	 */
+	private double shipWidth;           
+	/**
+	 * 吃水
+	 */
+	private double draft;          
+	/**
+	 * 最后时间
+	 */
+	private String lastTime;      
+	/**
+	 * 水上移动通信业务标识码：
+	 * 是船舶无线电通信系统在其无线电信道上发送的，
+	 * 能独特识别各类台站和成组呼叫台站的一列九位数字码
+	 */
+	private int MMSI;        
 	private int IMO;             //船舶代码
 	public String getShipName() {
 		return shipName;

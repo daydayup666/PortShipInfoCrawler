@@ -1,18 +1,20 @@
 package com.xmu.logic;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.xmu.javaBean.PortShipInfo;
+
 import org.htmlparser.*;
 import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.filters.TagNameFilter;
 import org.htmlparser.tags.*;
-import org.htmlparser.tags.TableColumn;
-import org.htmlparser.tags.TableRow;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
 public class ShipDynamicInfoParser {
+	
 	private String sourceUrl;
 	// private ArrayList<String> urlList = new ArrayList<>();
 	public static ArrayList<String> shipInfoLinkList = new ArrayList<>();
@@ -34,6 +36,7 @@ public class ShipDynamicInfoParser {
 	public void parseUrl() {
 		// urlList.add(sourceUrl);
 		try {
+					
 			System.out.println("提取开始...");
 			Parser parser = new Parser(sourceUrl);
 
@@ -49,7 +52,9 @@ public class ShipDynamicInfoParser {
 
 						NodeFilter childNodeFilter = new TagNameFilter("tr");
 						NodeList childNodeList = node.getChildren().extractAllNodesThatMatch(childNodeFilter, true);
-
+						//匹配9位数字的MMSI
+						Pattern pattern = Pattern.compile("\\d{9}");
+						
 						for (int j = 0; j < childNodeList.size(); j++) {
 							if (childNodeList.elementAt(j) instanceof TableRow) {
 								TableRow rowNode = (TableRow) childNodeList.elementAt(j);
@@ -69,6 +74,11 @@ public class ShipDynamicInfoParser {
 
 									if (count == 0) {
 										LinkTag link = (LinkTag)columnNode.getChild(0);
+										Matcher matcher = pattern.matcher(link.getLink());
+										while(matcher.find()) {
+											info.setMMSI(Integer.valueOf(matcher.group()));
+											System.out.println("MMSI="+matcher.group());
+										}
 										shipInfoLinkList.add(link.getLink());
 										System.out.println(link.getLink());
 										info.setShipName(columnNode.toPlainTextString());
