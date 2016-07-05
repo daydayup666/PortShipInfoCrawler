@@ -8,6 +8,13 @@ public class ShipBodyInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
+	 * 水上移动通信业务标识码：
+	 * 是船舶无线电通信系统在其无线电信道上发送的，
+	 * 能独特识别各类台站和成组呼叫台站的一列九位数字码
+	 */
+	private int MMSI;
+	
+	/**
 	 * 船舱数  
 	 */
 	private int cabinNum;   
@@ -44,6 +51,13 @@ public class ShipBodyInfo implements Serializable{
 	 * 是否装有惰性气体
 	 */
 	private boolean isEquippedInertGas;  
+	
+	public int getMMSI() {
+		return MMSI;
+	}
+	public void setMMSI(int mMSI) {
+		MMSI = mMSI;
+	}
 	public int getCabinNum() {
 		return cabinNum;
 	}

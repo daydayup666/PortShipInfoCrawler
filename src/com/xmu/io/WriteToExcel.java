@@ -31,7 +31,7 @@ public class WriteToExcel {
                 "http://www.chinaports.com/shipline/1/20/26/shipstatView");
         parser.parseUrl();
         ShipSpecificInfoParser shipSpecificInfoParser = new ShipSpecificInfoParser();
-        shipSpecificInfoParser.shipInfoParser();
+        shipSpecificInfoParser.extractAllShipInfo();;
         shipInfos = parser.getPortShipInfoList();
         try {
         	String filePath ="PortShipInfo.xls";

@@ -7,7 +7,12 @@ public class ShipBaseInfo implements Serializable{
 	 * 序列化对象版本控制
 	 */
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * 水上移动通信业务标识码：
+	 * 是船舶无线电通信系统在其无线电信道上发送的，
+	 * 能独特识别各类台站和成组呼叫台站的一列九位数字码
+	 */
+	private int MMSI;
 	/**
 	 * 船名
 	 */
@@ -32,10 +37,7 @@ public class ShipBaseInfo implements Serializable{
 	 * 船速
 	 */
 	private int shipSpeed;           
-	/**
-	 * 水上移动通信业务标识码
-	 */
-	private int MMSI;                
+                
 	/**
 	 * 船舶代码
 	 */
@@ -43,7 +45,7 @@ public class ShipBaseInfo implements Serializable{
 	/**
 	 * 呼号
 	 */
-	private String callLetter;           
+	private String callSign;           
 	/**
 	 * 造船厂
 	 */
@@ -80,8 +82,8 @@ public class ShipBaseInfo implements Serializable{
 	public int getIMO() {
 		return IMO;
 	}
-	public String getCallLetter() {
-		return callLetter;
+	public String getCallSign() {
+		return callSign;
 	}
 	public String getCreateShipFactory() {
 		return createShipFactory;
@@ -116,8 +118,8 @@ public class ShipBaseInfo implements Serializable{
 	public void setIMO(int iMO) {
 		IMO = iMO;
 	}
-	public void setCallLetter(String callLetter) {
-		this.callLetter = callLetter;
+	public void setCallSign(String callLetter) {
+		this.callSign = callLetter;
 	}
 	public void setCreateShipFactory(String createShipFactory) {
 		this.createShipFactory = createShipFactory;

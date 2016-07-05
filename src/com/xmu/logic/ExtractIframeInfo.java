@@ -32,9 +32,7 @@ public class ExtractIframeInfo {
 	}
 
 	public void extractIframeInfo(String url) {
-		try {
-		
-			
+		try {		
 			Parser parser = new Parser(url);
 			NodeFilter divFilter = new NodeClassFilter(Div.class);
 			NodeList divList = parser.extractAllNodesThatMatch(divFilter);
@@ -152,7 +150,7 @@ public class ExtractIframeInfo {
 								}
 							}
 							if(tableColumnList.elementAt(3).toPlainTextString().equals("载重吨：")){
-								if(!tableColumnList.elementAt(1).toPlainTextString().equals("&nbsp;")) {
+								if(!tableColumnList.elementAt(4).toPlainTextString().equals("&nbsp;")) {
 									Pattern pattern = Pattern
 											.compile("\\d+\\.?\\d*");
 									Matcher matcher = pattern
@@ -162,6 +160,18 @@ public class ExtractIframeInfo {
 										tonnage.setLoadingTonnage(Double.valueOf(matcher.group()));
 										System.out.println("载重吨："+matcher.group());
 									}
+								}
+							}
+						}else if(tableColumnList.elementAt(0).toPlainTextString().equals("载重吨：")){
+							if(!tableColumnList.elementAt(1).toPlainTextString().equals("&nbsp;")) {
+								Pattern pattern = Pattern
+										.compile("\\d+\\.?\\d*");
+								Matcher matcher = pattern
+										.matcher(tableColumnList.elementAt(1)
+												.toPlainTextString());
+								while(matcher.find()) {
+									tonnage.setNetTonnage(Double.valueOf(matcher.group()));
+									System.out.println("载重吨："+matcher.group());
 								}
 							}
 						}
