@@ -1,6 +1,7 @@
 package com.xmu.logic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +21,7 @@ import com.xmu.javaBean.ShipMainInfo;
 import com.xmu.javaBean.ShipTonnage;
 
 public class ShipSpecificInfoParser {
-	ArrayList<String> shipInfoLinkList;
+	HashSet<String> shipInfoLinkList;
 	/**
 	 * 保存所有船舶主要资料
 	 */
@@ -42,14 +43,13 @@ public class ShipSpecificInfoParser {
 	 * 船舶信息解析
 	 */
 	public void extractAllShipInfo() {
-		shipInfoLinkList = ShipDynamicInfoParser.shipInfoLinkList;
+		shipInfoLinkList = ShipDynamicInfoParser.shipInfoLinkSet;
 		//System.out.println(shipInfoLinkList);
 		for(String url:shipInfoLinkList) {		
 			shipInfoParser(url);
 		}
 	}
 	public void shipInfoParser(String link) {
-		int mmsi=0;
 		
 		try {
 			System.out.println("开始提取"+link+"的船舶具体信息...");
@@ -159,7 +159,6 @@ public class ShipSpecificInfoParser {
 								}
 							} else if (spanList.elementAt(0)
 									.toPlainTextString().equals("MMSI：")) {
-								mmsi = Integer.valueOf(spanList.elementAt(1).toPlainTextString());
 								mainInfo.setMMSI(Integer.valueOf(spanList
 										.elementAt(1).toPlainTextString()));
 								baseInfo.setMMSI(Integer.valueOf(spanList
@@ -244,9 +243,6 @@ public class ShipSpecificInfoParser {
 					ExtractIframeInfo iFrameInfo = new ExtractIframeInfo();
 					iFrameInfo.extractIframeInfo("http://www.chinaports.com/"
 							+ iFrameNode.getAttribute("src"));
-					
-					iFrameInfo.getBodyInfo().setMMSI(mmsi);
-					iFrameInfo.getTonnage().setMMSI(mmsi);
 					shipBodyInfosList.add(iFrameInfo.getBodyInfo());
 					//System.out.println("MMSI="+iFrameInfo.getBodyInfo().getMMSI());
 					shipTonnagesList.add(iFrameInfo.getTonnage());

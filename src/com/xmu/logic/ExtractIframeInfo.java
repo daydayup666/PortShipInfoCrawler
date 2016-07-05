@@ -36,7 +36,14 @@ public class ExtractIframeInfo {
 			Parser parser = new Parser(url);
 			NodeFilter divFilter = new NodeClassFilter(Div.class);
 			NodeList divList = parser.extractAllNodesThatMatch(divFilter);
+			Pattern pat = Pattern.compile("\\d{9}");
+			Matcher mat = pat.matcher(url);
 			
+			while(mat.find()) {
+				bodyInfo.setMMSI(Integer.valueOf(mat.group()));
+				tonnage.setMMSI(Integer.valueOf(mat.group()));
+				System.out.println("MMSI="+mat.group());
+			}
 			
 			for(int i=0;i<divList.size();i++) {
 				Div divNode =(Div)divList.elementAt(i);

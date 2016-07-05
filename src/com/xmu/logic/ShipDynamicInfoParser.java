@@ -1,6 +1,7 @@
 package com.xmu.logic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,10 @@ public class ShipDynamicInfoParser {
 	
 	private String sourceUrl;
 	// private ArrayList<String> urlList = new ArrayList<>();
-	public static ArrayList<String> shipInfoLinkList = new ArrayList<>();
+	/**
+	 * 使用HashSet避免重复URL
+	 */
+	public static HashSet<String> shipInfoLinkSet = new HashSet<>();
 	private ArrayList<PortShipInfo> portShipInfoList = new ArrayList<>();
 
 	public ShipDynamicInfoParser() {
@@ -30,9 +34,7 @@ public class ShipDynamicInfoParser {
 	public ArrayList<PortShipInfo> getPortShipInfoList() {
 		return portShipInfoList;
 	}
-	public ArrayList<String> getShipInfoLinkList() {
-		return shipInfoLinkList;
-	}
+	
 	public void parseUrl() {
 		// urlList.add(sourceUrl);
 		try {
@@ -79,7 +81,7 @@ public class ShipDynamicInfoParser {
 											info.setMMSI(Integer.valueOf(matcher.group()));
 											System.out.println("MMSI="+matcher.group());
 										}
-										shipInfoLinkList.add(link.getLink());
+										shipInfoLinkSet.add(link.getLink());
 										System.out.println(link.getLink());
 										info.setShipName(columnNode.toPlainTextString());
 									}
