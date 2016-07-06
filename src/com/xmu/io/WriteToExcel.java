@@ -67,7 +67,7 @@ public class WriteToExcel {
 			book.write();
 			book.close();
 			long end = System.currentTimeMillis();
-			System.out.println("提取完成，共花费时间"+(end-start)/1000+"s");
+			System.out.println("爬取完成，共花费时间"+(end-start)/1000+"s");
 			
 		} catch (IOException e) {
 			

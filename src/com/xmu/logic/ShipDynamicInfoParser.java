@@ -1,7 +1,6 @@
 package com.xmu.logic;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +20,7 @@ public class ShipDynamicInfoParser {
 	/**
 	 * 使用HashSet避免重复URL
 	 */
-	public static HashSet<String> shipInfoLinkSet = new HashSet<>();
+	public static ArrayList<String> shipInfoLinkSet = new ArrayList<>();
 	private ArrayList<PortShipInfo> portShipInfoList = new ArrayList<>();
 
 	public ShipDynamicInfoParser() {
@@ -39,7 +38,7 @@ public class ShipDynamicInfoParser {
 		// urlList.add(sourceUrl);
 		try {
 					
-			System.out.println("提取开始...");
+			System.out.println("爬取开始...");
 			Parser parser = new Parser(sourceUrl);
 
 			NodeFilter nodeFilter = new NodeClassFilter(Div.class);

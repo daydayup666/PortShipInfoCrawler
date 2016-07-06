@@ -27,22 +27,49 @@ public class ShipBodyInfo implements Serializable{
 	 */
 	private int deckNum;   
 	/**
+	 * 翼液货舱
+	 */
+	private String wingTank;
+	/**
 	 * 总长
 	 */
 	private double totalLength;
-
+	/**
+	 * 液货舱
+	 */
+	private String cargoTank;
 	/**
 	 * 型深(m)
 	 */
 	private double molededDepth;     
 	/**
+	 * 中心液货舱
+	 */
+	private String centerCargoTank;
+	/**
 	 * 型宽(m)
 	 */
-	private double molededWidth;     
+	private double molededWidth; 
+	/**
+	 * 甲板液货舱
+	 */
+	private String deckCargoTank;
 	/**
 	 * 吃水米数(m)
 	 */
-	private double draft;            
+	private double draft; 
+	/**
+	 * 污水舱
+	 */
+	private String bilgeTank;
+	/**
+	 * 排水量
+	 */
+	private double displacement;
+	/**
+	 * 冷藏总容量
+	 */
+	private double totalRefrerate;
 	/**
 	 * 是否配置原油洗舱
 	 */
@@ -82,6 +109,18 @@ public class ShipBodyInfo implements Serializable{
 	public double getDraft() {
 		return draft;
 	}
+	public double getDisplacement() {
+		return displacement;
+	}
+	public void setDisplacement(double displacement) {
+		this.displacement = displacement;
+	}
+	public double getTotalRefrerate() {
+		return totalRefrerate;
+	}
+	public void setTotalRefrerate(double totalRefrerate) {
+		this.totalRefrerate = totalRefrerate;
+	}
 	public boolean isConfiguredWashing() {
 		return isConfiguredWashing;
 	}
@@ -105,6 +144,36 @@ public class ShipBodyInfo implements Serializable{
 	}
 	public void setDraft(double draft) {
 		this.draft = draft;
+	}
+	public String getWingTank() {
+		return wingTank;
+	}
+	public void setWingTank(String wingTank) {
+		this.wingTank = wingTank;
+	}
+	public String getCargoTank() {
+		return cargoTank;
+	}
+	public void setCargoTank(String cargoTank) {
+		this.cargoTank = cargoTank;
+	}
+	public String getCenterCargoTank() {
+		return centerCargoTank;
+	}
+	public void setCenterCargoTank(String centerCargoTank) {
+		this.centerCargoTank = centerCargoTank;
+	}
+	public String getDeckCargoTank() {
+		return deckCargoTank;
+	}
+	public void setDeckCargoTank(String deckCargoTank) {
+		this.deckCargoTank = deckCargoTank;
+	}
+	public String getBilgeTank() {
+		return bilgeTank;
+	}
+	public void setBilgeTank(String bilgeTank) {
+		this.bilgeTank = bilgeTank;
 	}
 	public void setConfiguredWashing(boolean isConfiguredWashing) {
 		this.isConfiguredWashing = isConfiguredWashing;

@@ -18,7 +18,7 @@ public class ShipMainInfo implements Serializable{
 	/**
 	 * 呼号
 	 */
-	private String callLetter;       
+	private String callSign;       
 	/**
 	 * 国籍
 	 */
@@ -66,11 +66,11 @@ public class ShipMainInfo implements Serializable{
 	public void setShipChineseName(String shipChineseName) {
 		this.shipChineseName = shipChineseName;
 	}
-	public String getCallLetter() {
-		return callLetter;
+	public String getCallSign() {
+		return callSign;
 	}
-	public void setCallLetter(String callLetter) {
-		this.callLetter = callLetter;
+	public void setCallSign(String callSign) {
+		this.callSign = callSign;
 	}
 	public String getNationality() {
 		return nationality;

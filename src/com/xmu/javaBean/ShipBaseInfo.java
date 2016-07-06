@@ -36,7 +36,7 @@ public class ShipBaseInfo implements Serializable{
 	/**
 	 * 船速
 	 */
-	private int shipSpeed;           
+	private double shipSpeed;           
                 
 	/**
 	 * 船舶代码
@@ -57,7 +57,24 @@ public class ShipBaseInfo implements Serializable{
 	/**
 	 * 造船时间
 	 */
-	private String createShipTime;     
+	private String createShipTime;   
+	/**
+	 * 船级社
+	 */
+	private String shipClassificationSociety;
+	/**
+	 * 船籍港
+	 */
+	private String shipHomePort;
+	/**
+	 * 安放龙骨日期
+	 */
+	private String layKeelTime;
+	/**
+	 * 下水时间
+	 */
+	private String launchingTime;
+	
 	public String getShipName() {
 		return shipName;
 	}
@@ -73,7 +90,7 @@ public class ShipBaseInfo implements Serializable{
 	public String getShipChineseName() {
 		return shipChineseName;
 	}
-	public int getShipSpeed() {
+	public double getShipSpeed() {
 		return shipSpeed;
 	}
 	public int getMMSI() {
@@ -109,7 +126,7 @@ public class ShipBaseInfo implements Serializable{
 	public void setShipChineseName(String shipChineseName) {
 		this.shipChineseName = shipChineseName;
 	}
-	public void setShipSpeed(int shipSpeed) {
+	public void setShipSpeed(double shipSpeed) {
 		this.shipSpeed = shipSpeed;
 	}
 	public void setMMSI(int mMSI) {
@@ -129,6 +146,30 @@ public class ShipBaseInfo implements Serializable{
 	}
 	public void setCreateShipTime(String createShipTime) {
 		this.createShipTime = createShipTime;
+	}
+	public String getShipClassificationSociety() {
+		return shipClassificationSociety;
+	}
+	public void setShipClassificationSociety(String shipClassificationSociety) {
+		this.shipClassificationSociety = shipClassificationSociety;
+	}
+	public String getShipHomePort() {
+		return shipHomePort;
+	}
+	public void setShipHomePort(String shipHomePort) {
+		this.shipHomePort = shipHomePort;
+	}
+	public String getLayKeelTime() {
+		return layKeelTime;
+	}
+	public void setLayKeelTime(String layKeelTime) {
+		this.layKeelTime = layKeelTime;
+	}
+	public String getLaunchingTime() {
+		return launchingTime;
+	}
+	public void setLaunchingTime(String launchingTime) {
+		this.launchingTime = launchingTime;
 	}
 	
 }
