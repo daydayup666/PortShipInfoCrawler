@@ -39,9 +39,9 @@ public class ShipDynamicInfoParser {
 		try {
 					
 			System.out.println("爬取开始...");
+			
 			Parser parser = new Parser(sourceUrl);
-
-			NodeFilter nodeFilter = new NodeClassFilter(Div.class);
+			NodeFilter nodeFilter = new NodeClassFilter(Div.class);			
 			NodeList nodeList = parser.extractAllNodesThatMatch(nodeFilter);
 
 			for (int i = 0; i < nodeList.size(); i++) {
@@ -78,7 +78,7 @@ public class ShipDynamicInfoParser {
 										Matcher matcher = pattern.matcher(link.getLink());
 										while(matcher.find()) {
 											info.setMMSI(Integer.valueOf(matcher.group()));
-											System.out.println("MMSI="+matcher.group());
+	//										System.out.println("MMSI="+matcher.group());
 										}
 										shipInfoLinkSet.add(link.getLink());
 										System.out.println(link.getLink());
@@ -121,14 +121,9 @@ public class ShipDynamicInfoParser {
 							}
 						}
 					}
-
 				}
 			}
-			System.out.println(portShipInfoList.size());
-			for (PortShipInfo info : portShipInfoList) {
-				System.out.println(info.getShipName() + "\t\t" + info.getDynamicInfo() + "\t\t" + info.getPortName()
-						+ "\t\t" + info.getDate());
-			}
+
 		} catch (ParserException e) {
 			e.printStackTrace();
 		}

@@ -30,6 +30,9 @@ public class WriteToExcel {
         ShipDynamicInfoParser parser = new ShipDynamicInfoParser(
                 "http://www.chinaports.com/shipline/1/20/26/shipstatView");
         parser.parseUrl();
+        long end = System.currentTimeMillis();
+		System.out.println("爬取完成，共花费时间"+(end-start)/1000+"s");
+		
         ShipSpecificInfoParser shipSpecificInfoParser = new ShipSpecificInfoParser();
         shipSpecificInfoParser.extractAllShipInfo();;
         shipInfos = parser.getPortShipInfoList();
@@ -66,8 +69,7 @@ public class WriteToExcel {
 			}
 			book.write();
 			book.close();
-			long end = System.currentTimeMillis();
-			System.out.println("爬取完成，共花费时间"+(end-start)/1000+"s");
+			
 			
 		} catch (IOException e) {
 			

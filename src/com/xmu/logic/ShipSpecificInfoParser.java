@@ -21,7 +21,7 @@ import com.xmu.javaBean.ShipTonnage;
 
 public class ShipSpecificInfoParser {
 	int count = 0;
-	final int threadCount = 10;
+	final int threadCount = 6;
 	ArrayList<String> shipInfoLinkList;
 	/**
 	 * 保存所有船舶主要资料
@@ -52,9 +52,7 @@ public class ShipSpecificInfoParser {
 		begin();
 	}
 	private void begin() {
-		long start = System.currentTimeMillis();
-		for(int i=0;i<threadCount;i++) {
-			new Thread(new Runnable() {				
+		Thread t1 =new Thread(new Runnable() {				
 				@Override
 				public void run() {
 					while(true) {
@@ -62,16 +60,70 @@ public class ShipSpecificInfoParser {
 						if(link!=null) {
 							shipInfoParser(link);
 						}else {	
-							long end = System.currentTimeMillis();					
-							System.out.println("总共爬取网页"+count);
-							System.out.println("总共耗时"+(end-start)/1000+"秒");
-							break;
+													break;
 						}
 					}
 					
 				}
-			},"线程-"+i).start();
+			},"线程1");
+		
+		Thread t2 =new Thread(new Runnable() {				
+			@Override
+			public void run() {
+				while(true) {
+					String link = getUrl();
+					if(link!=null) {
+						shipInfoParser(link);
+					}else {
+						break;
+					}
+				}
+				
+			}
+		},"线程2");
+		Thread t3 =new Thread(new Runnable() {				
+			@Override
+			public void run() {
+				while(true) {
+					String link = getUrl();
+					if(link!=null) {
+						shipInfoParser(link);
+					}else {					
+						break;
+					}
+				}
+				
+			}
+		},"线程3");
+		Thread t4 =new Thread(new Runnable() {				
+			@Override
+			public void run() {
+				while(true) {
+					String link = getUrl();
+					if(link!=null) {
+						shipInfoParser(link);
+					}else {	
+						break;
+					}
+				}
+				
+			}
+		},"线程4");
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+		try {
+			t1.join();
+			t2.join();
+			t3.join();
+			t4.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	
+		
 	}
 	public synchronized String getUrl() {
 		if(count>=shipInfoLinkList.size())
@@ -288,7 +340,8 @@ public class ShipSpecificInfoParser {
 							}
 						}
 					}
-				
+					shipMainInfosList.add(mainInfo);
+					shipBaseInfosList.add(baseInfo);
 					
 					NodeFilter iFrameFilter = new TagNameFilter("iframe");
 					NodeList iFrameList = divNode.getChildren()
