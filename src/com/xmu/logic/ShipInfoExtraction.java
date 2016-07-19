@@ -13,7 +13,7 @@ import com.xmu.javaBean.NecessaryShipInfo;
 
 
 public class ShipInfoExtraction {
-	NecessaryShipInfo shipInfo = new NecessaryShipInfo();
+	private NecessaryShipInfo shipInfo = new NecessaryShipInfo();
 	
 	public void extract(String url) {
 		try {
@@ -56,5 +56,9 @@ public class ShipInfoExtraction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public NecessaryShipInfo getShipInfo() {
+		return shipInfo;
 	}
 }
