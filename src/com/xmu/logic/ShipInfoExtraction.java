@@ -13,10 +13,44 @@ import com.xmu.javaBean.NecessaryShipInfo;
 
 
 public class ShipInfoExtraction {
-	private NecessaryShipInfo shipInfo = new NecessaryShipInfo();
+	private int count = 0;
+	private int threadCount = 4;
+	private ArrayList<NecessaryShipInfo> shipInfosList = new ArrayList<>();
+	private ArrayList<String> linkList;
+	public ShipInfoExtraction() {
+		linkList = ShipDynamicInfoParser.shipInfoLinkList;
+	}
 	
+	public void extractAllShipInfo() {
+		begin();
+	}
+	private void begin() {
+		for(int i=0;i<threadCount;i++) {
+			new Thread(new Runnable() {			
+				@Override
+				public void run() {
+					while(true) {
+						String link = getUrl();
+						if(link!=null) {
+							extract(link);
+						}else {
+							break;
+						}
+					}				
+				}
+			},"线程"+i).start();
+		}
+	}
+	
+	private synchronized String getUrl() {
+		if(count>=linkList.size()) 
+			return null;
+		return linkList.get(count++);
+	}
 	public void extract(String url) {
+		NecessaryShipInfo shipInfo = new NecessaryShipInfo();
 		try {
+			System.out.println("开始由"+Thread.currentThread().getName()+"爬取船舶必要信息...");
 			//匹配MMSI
 			Pattern pat = Pattern.compile("\\d{9}");
 			Matcher mat = pat.matcher(url);
@@ -52,13 +86,16 @@ public class ShipInfoExtraction {
 			if(!info.get(22).equals(" "))
 				shipInfo.setNetTonnage(Double.valueOf(info.get(22)));
 			System.out.println("净（吨）:"+info.get(22));
+			shipInfosList.add(shipInfo);
 		} catch (ParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			
 		}
 	}
 
-	public NecessaryShipInfo getShipInfo() {
-		return shipInfo;
+	public ArrayList<NecessaryShipInfo> getShipInfosList() {
+		return shipInfosList;
 	}
 }
