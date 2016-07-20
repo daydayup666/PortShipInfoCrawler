@@ -15,6 +15,10 @@ public class NecessaryShipInfo implements Serializable {
 	 */
 	private int MMSI;
 	/**
+	 * 提取时间
+	 */
+	private long extractTime;
+	/**
 	 * 船舶名
 	 */
 	private String shipName;
@@ -37,20 +41,26 @@ public class NecessaryShipInfo implements Serializable {
 	/**
 	 * 总吨位
 	 */
-	private double totalTonnage;    
+	private float totalTonnage;    
 	/**
 	 * 载重吨位
 	 */
-	private double loadingTonnage;  
+	private float loadingTonnage;  
 	/**
 	 * 净吨位
 	 */
-	private double netTonnage;
+	private float netTonnage;
 	public int getMMSI() {
 		return MMSI;
 	}
 	public void setMMSI(int mMSI) {
 		MMSI = mMSI;
+	}
+	public long getExtractTime() {
+		return extractTime;
+	}
+	public void setExtractTime(long extractTime) {
+		this.extractTime = extractTime;
 	}
 	public String getShipName() {
 		return shipName;
@@ -82,22 +92,22 @@ public class NecessaryShipInfo implements Serializable {
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public double getTotalTonnage() {
+	public float getTotalTonnage() {
 		return totalTonnage;
 	}
-	public void setTotalTonnage(double totalTonnage) {
+	public void setTotalTonnage(float totalTonnage) {
 		this.totalTonnage = totalTonnage;
 	}
-	public double getLoadingTonnage() {
+	public float getLoadingTonnage() {
 		return loadingTonnage;
 	}
-	public void setLoadingTonnage(double loadingTonnage) {
+	public void setLoadingTonnage(float loadingTonnage) {
 		this.loadingTonnage = loadingTonnage;
 	}
-	public double getNetTonnage() {
+	public float getNetTonnage() {
 		return netTonnage;
 	}
-	public void setNetTonnage(double netTonnage) {
+	public void setNetTonnage(float netTonnage) {
 		this.netTonnage = netTonnage;
 	}
       

@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/cpdetector_1.0.10.jar"/>
 	<classpathentry kind="lib" path="lib/htmlparser.jar" sourcepath="libSource/src.zip"/>
 	<classpathentry kind="lib" path="lib/jxl-2.6.12.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
