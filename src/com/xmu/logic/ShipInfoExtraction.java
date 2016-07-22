@@ -18,11 +18,12 @@ import com.xmu.javaBean.PortShipInfo;
 public class ShipInfoExtraction {
 	private int count = 0;
 	private HashMap<Integer, PortShipInfo> shipInfoMap;
-	private ArrayList<NecessaryShipInfo> shipInfosList = new ArrayList<>();
+	private ArrayList<NecessaryShipInfo> shipInfosList;
 	private ArrayList<String> linkList;
-	public ShipInfoExtraction() {
-		shipInfoMap = ShipDynamicInfoParser.portShipInfoMap;
-		linkList = ShipDynamicInfoParser.shipInfoLinkList;
+	public ShipInfoExtraction(ArrayList<String> linkList,HashMap<Integer, PortShipInfo> portShipInfoMap) {
+		shipInfosList = new ArrayList<>();
+		this.shipInfoMap = portShipInfoMap;
+		this.linkList = linkList;
 	}
 	
 	public void extractAllShipInfo() {

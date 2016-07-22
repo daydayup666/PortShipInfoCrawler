@@ -21,8 +21,10 @@ public class ShipDynamicInfoParser {
 	/**
 	 * 使用HashSet避免重复URL
 	 */
-	public static ArrayList<String> shipInfoLinkList = new ArrayList<>();
-	public static HashMap<Integer,PortShipInfo> portShipInfoMap = new HashMap<>();
+	private  ArrayList<String> shipInfoLinkList = new ArrayList<>();
+	
+
+	private HashMap<Integer,PortShipInfo> portShipInfoMap = new HashMap<>();
 
 	public ShipDynamicInfoParser() {
 		
@@ -30,13 +32,14 @@ public class ShipDynamicInfoParser {
 	public ShipDynamicInfoParser(String sourceUrl) {
 		this.sourceUrl = sourceUrl;
 	}
-
-	public HashMap<Integer,PortShipInfo> getPortShipInfoList() {
-
+	//返回船舶的动态信息，key:MMSI value:港口船舶动态信息
+	public HashMap<Integer,PortShipInfo> getPortShipInfoMap() {
 		System.out.println("portShipInfoMap.size()="+portShipInfoMap.size());
 		return portShipInfoMap;
 	}
-	
+	public ArrayList<String> getShipInfoLinkList() {
+		return shipInfoLinkList;
+	}
 	public void parseUrl() {
 		// urlList.add(sourceUrl);
 		try {

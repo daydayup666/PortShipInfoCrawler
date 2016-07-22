@@ -9,17 +9,14 @@ import java.util.ArrayList;
 
 import com.xmu.javaBean.NecessaryShipInfo;
 import com.xmu.javaBean.PortShipInfo;
-import com.xmu.logic.GetAllShipInfo;
+
 
 public class SaveToMySql {
 	ArrayList<PortShipInfo> dynamicShipInfos;
 	ArrayList<NecessaryShipInfo> necessaryShipInfos;
 	Connection conn = null;	
-	public SaveToMySql() {
-		GetAllShipInfo  info = new GetAllShipInfo();
-		info.getShipInfo();
-		dynamicShipInfos = info.getShipInfos();
-		necessaryShipInfos = info.getNecessaryShipInfos();	
+	public SaveToMySql(ArrayList<NecessaryShipInfo> shipInfo) {
+		this.necessaryShipInfos = shipInfo;	
 		conn = getConn();
 	}
 	

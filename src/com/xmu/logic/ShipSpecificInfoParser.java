@@ -44,7 +44,7 @@ public class ShipSpecificInfoParser {
 	 * 船舶信息解析
 	 */
 	public void extractAllShipInfo() {
-		shipInfoLinkList = ShipDynamicInfoParser.shipInfoLinkList;
+//		shipInfoLinkList = ShipDynamicInfoParser.shipInfoLinkList;
 //		//System.out.println(shipInfoLinkList);
 //		for(String url:shipInfoLinkList) {		
 //			shipInfoParser(url);
